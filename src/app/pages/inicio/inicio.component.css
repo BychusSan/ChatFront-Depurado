@@ -1,0 +1,262 @@
+@import "primeicons/primeicons.css";
+
+.code-container {
+    position: relative;
+    /* Tus otros estilos aquí */
+}
+
+
+.menubar{
+    background-color: #555;
+}
+
+
+body .menubar {
+    background-color: #333;
+  }
+
+
+  .prueba{
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 550px;
+    scrollbar-width: thin;
+    scrollbar-color: #d3e2f9 transparent;
+    border-radius: 7px;
+  }
+  
+
+/* Estilos Generales */
+h2,
+h3,
+p,
+pre,
+li {
+    text-align: left;
+    /* Alineación del texto a la izquierda */
+    color: #b8b8b8;
+    /* Color oscuro para mejorar la legibilidad */
+}
+
+/* Encabezados */
+h2 {
+    font-size: 2em;
+    /* Tamaño más grande para los títulos principales */
+    margin-bottom: 0.5em;
+    /* Espaciado debajo del título */
+    color: #007BFF;
+    /* Color distintivo para los títulos */
+}
+
+h3 {
+    font-size: 1.5em;
+    /* Tamaño adecuado para subtítulos */
+    margin-top: 1em;
+    /* Espaciado arriba de los subtítulos */
+    margin-bottom: 0.5em;
+    /* Espaciado debajo de los subtítulos */
+    color: #0056b3;
+    /* Color un poco más sutil que el de h2 */
+}
+
+/* Párrafos */
+p {
+    font-size: 1em;
+    /* Tamaño estándar para el texto */
+    line-height: 1.5;
+    /* Altura de línea para mejorar la legibilidad */
+    margin-bottom: 1em;
+    /* Espaciado debajo de los párrafos */
+}
+
+/* Bloques de Código */
+/* pre { */
+/* background-color: #f5f5f5; */
+/* Color de fondo suave para los bloques de código */
+/* border: 1px solid #ddd; */
+/* Borde sutil */
+/* border-radius: 5px; */
+/* Bordes redondeados */
+/* padding: 1em; */
+/* Espaciado interno */
+/* overflow-x: auto; */
+/* Desplazamiento horizontal para código largo */
+/* margin-bottom: 1em; */
+/* Espaciado debajo de los bloques de código */
+/* } */
+
+/* Listas */
+li {
+    font-size: 1em;
+    /* Tamaño estándar para elementos de lista */
+    margin-bottom: 0.5em;
+    /* Espaciado debajo de cada elemento de lista */
+}
+
+/* Contenedores de Secciones Específicas */
+/* .signalr-section,
+.signalr-features,
+.signalr-code-examples {
+    margin-bottom: 2em; */
+/* Espaciado debajo de cada sección para una clara separación */
+/* } */
+
+/* Enlaces */
+a {
+    color: #007bff;
+    /* Color para enlaces */
+    text-decoration: none;
+    /* Quitar subrayado de enlaces */
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Subrayar enlaces al pasar el mouse para indicar clickeabilidad */
+    
+}
+
+
+
+.copy-button {
+    position: absolute;
+    top: 0.5em;
+    /* Ajusta según sea necesario */
+    right: 0.5em;
+    /* Ajusta según sea necesario */
+    background-color: transparent;
+    /* Fondo transparente */
+    border: none;
+    /* Sin borde */
+    cursor: pointer;
+    /* Cursor en forma de mano para indicar clic */
+    outline: none;
+    /* Quitar el contorno al hacer foco */
+}
+
+.copy-button .pi {
+    font-size: 1.5em;
+    /* Tamaño del icono */
+    color: #666;
+    /* Color del icono, cambia según tu preferencia */
+}
+
+.code-header {
+    text-align: left;
+    /* Alinea el texto a la derecha */
+    margin-bottom: 1em;
+    /* Añade un poco de margen en la parte inferior si es necesario */
+}
+
+.code-block {
+    position: relative;
+    background: #262626;
+    /* Color de fondo para el bloque de código */
+    border-radius: 5px;
+    /* Bordes redondeados para el bloque de código */
+    border: 1px solid #ececec;
+    /* Borde para el bloque de código */
+    padding: 1em;
+    /* Espaciado interno para el bloque de código */
+    margin-bottom: 1em;
+    /* Añade desplazamiento si el contenido es demasiado ancho */
+    text-align: left;
+    height: 40dvh;
+    width: 100%;
+    overflow: scroll;
+}
+
+.language-csharp {
+    color: antiquewhite;
+    font-family: 'Cascadia Code';
+}
+
+/* Establece los estilos por defecto para los elementos con clases que contienen 'language-' */
+code[class*=language-],
+pre[class*=language-] {
+    color: #ccc;
+    /* Color del texto */
+    background: none;
+    /* Fondo transparente */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    /* Tipo de fuente */
+    font-size: 1em;
+    /* Tamaño de la fuente */
+    text-align: left;
+    /* Alineación del texto */
+    white-space: pre;
+    /* Espacios en blanco */
+    word-spacing: normal;
+    /* Espaciado entre palabras */
+    word-break: normal;
+    /* Ajuste de palabras */
+    word-wrap: normal;
+    /* Envoltura de palabras */
+    line-height: 1.5;
+    /* Altura de línea */
+    -moz-tab-size: 4;
+    /* Tamaño de tabulación para Firefox */
+    -o-tab-size: 4;
+    /* Tamaño de tabulación para Opera */
+    tab-size: 4;
+    /* Tamaño de tabulación */
+    -webkit-hyphens: none;
+    /* Desactiva guiones para WebKit */
+    -moz-hyphens: none;
+    /* Desactiva guiones para Firefox */
+    -ms-hyphens: none;
+    /* Desactiva guiones para IE */
+    hyphens: none
+        /* Desactiva guiones */
+}
+
+/* Estilos específicos para el elemento <pre> cuando contiene una clase 'language-' */
+pre[class*=language-] {
+    padding: 1em;
+    /* Relleno */
+    margin: .5em 0;
+    /* Margen */
+    overflow: auto
+        /* Desbordamiento automático */
+}
+
+/* Estilos para elementos <code> no dentro de <pre> y para <pre> */
+:not(pre)>code[class*=language-],
+pre[class*=language-] {
+    background: #2d2d2d
+        /* Fondo oscuro */
+}
+
+/* Estilos para elementos <code> no dentro de <pre> */
+:not(pre)>code[class*=language-] {
+    padding: .1em;
+    /* Relleno */
+    border-radius: .3em;
+    /* Bordes redondeados */
+    white-space: normal
+        /* Espacios en blanco normales */
+}
+
+/* Colores y estilos para diferentes tokens (palabras clave, comentarios, etc.) */
+.token.block-comment,
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+    color: #999
+        /* Comentarios y otros elementos */
+}
+
+/* Más colores y estilos para otros tokens */
+.token.punctuation {
+    color: #ccc
+        /* Puntuación */
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    /* color: var(--bs-heading-color); */
+    color: white;
+}

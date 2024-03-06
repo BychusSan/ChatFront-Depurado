@@ -1,0 +1,71 @@
+<div class="container mt-4">
+  <div class="padreTitulo">
+    <div class="titulo">
+      <h1>Historial</h1>
+    </div>
+  </div>
+
+  <div class="form-group text-center">
+
+    <div class="padreSelect">
+      <select
+        class="form-select text-center"
+        id="selectSala"
+        [(ngModel)]="salaSeleccionada"
+        (change)="getHistorialChat();activarInputFecha()"
+        style="background-color: #e1f4fd"
+      >
+        <option [value]="null" disabled selected>Seleccione una sala</option>
+        <option *ngFor="let sala of getSalasVisibles()" [value]="sala">
+          {{ getLabelForSala(sala) }}
+        </option>
+      </select>
+    </div>
+    
+    
+
+    
+
+    <div class="contenedorInputs">
+    <div class="padreImput">
+      <label for="fechaInicio">Desde:</label>
+      <input
+        type="date"
+        id="fechaInicio"
+        class="form-control text-center"
+        [(ngModel)]="fechaInicio"
+        (change)="getHistorialChat2()"
+        style="background-color: #e1f4fd"
+        [disabled]="input2desactivado"
+      />
+    </div>
+    <div class="padreImput">
+      <label for="fechaFin">Hasta:</label>
+      <input
+        type="date"
+        id="fechaFin"
+        class="form-control text-center"
+        [(ngModel)]="fechaFin"
+        (change)="getHistorialChat2()"
+        style="background-color: #e1f4fd"
+        [disabled]="input2desactivado"
+      />
+    </div>
+  </div>
+
+    <div>
+      <button class="btn btn-primary" (click)="descargarHistorial()">
+        Descargar Historial
+      </button>
+    </div>
+
+    <div class="historial-container">
+      <ul class="historial-list">
+        <li *ngFor="let mensaje of historial" class="mensaje-item">
+          [{{ mensaje.fechaMensaje | date : "short" }}] - [{{ mensaje.rol }}] -
+          [{{ mensaje.nombre }}] >>> {{ mensaje.texto }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

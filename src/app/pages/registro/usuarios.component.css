@@ -1,0 +1,119 @@
+ .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+ .dropdown-toggle {
+  background-color: #3498db;
+  color: #ffffff;
+  border: 1px solid #2980b9;
+} 
+
+.dropdown-menu {
+  border: 1px solid #3498db;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #3498db;
+
+}
+
+.dropdown-item {
+  color: #ffffff; 
+}
+
+.dropdown-item:hover {
+  background-color: #2980b9; 
+  color: #ffffff;
+}
+
+.container{
+  color:rgb(230, 228, 228);
+  min-width: 95%;
+
+}
+
+
+.container input[type="text"],
+.container input[type="email"],
+.container select {
+    background-color: #b9c8e0; 
+    color: black; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 5px; 
+    font-weight: bold;
+
+}
+
+.container input[type="text"]::placeholder,
+.container input[type="email"]::placeholder,
+.container select::placeholder {
+    color: black; 
+}
+
+
+
+#prueba{
+  height: 450px;
+  overflow-y: auto; 
+  scrollbar-width: thin;
+scrollbar-color: #d3e2f9 transparent;
+border-radius: 7px;
+
+}
+
+/* AQUI */
+
+.custom-table {
+  background-color: rgb(18, 22, 32); 
+  /* background-color: rgb(27, 27, 27);  */
+  color: white; 
+  border-radius: 7px; 
+  border-collapse: collapse; 
+  width: 100%;
+  /* border: 1px solid #454d55;  */
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 8px; 
+  text-align: center; 
+  
+}
+
+.custom-table th {
+  background-color: #b9c8e0(27, 27, 27); 
+  
+}
+
+.custom-table td {
+  background-color: #b9c8e0(27, 27, 27); 
+}
+
+.custom-table th:first-child,
+.custom-table td:first-child {
+  border-left: 1px solid #b9c8e0(27, 27, 27); 
+}
+
+.custom-table th:last-child,
+.custom-table td:last-child {
+  border-right: 1px solid #b9c8e0(27, 27, 27); 
+}
+
+.custom-table tbody tr:last-child td {
+  border-bottom: 1px solid #b9c8e0(27, 27, 27); 
+}
+
+
+.custom-table input[type="text"],
+.custom-table select {
+    background-color: #b9c8e0; 
+    color: black; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 5px; 
+}
+
+.custom-table input[type="text"]::placeholder,
+.custom-table select::placeholder {
+    color: black; 
+}

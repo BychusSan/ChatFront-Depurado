@@ -1,0 +1,44 @@
+<!-- <div class="login-overlay"> -->
+  <form class="form" (submit)="login()">
+    <p>Login</p>
+    <div class="group">
+      <input
+      type="email"
+      class="main-input"
+      [(ngModel)]="usuario.email"
+      name="usuario"
+      id="usuario"
+      required
+      autofocus
+    />  
+
+    <span class="highlight-span"></span>
+      <label for="inputEmail" class="lebal-email">Email</label>
+    </div>
+    <div class="container-1">
+      <div class="group">
+        <input
+        type="password"
+        class="main-input"
+        name="password"
+        id="password"
+        [(ngModel)]="usuario.password"
+        required
+      />   
+      
+      
+
+      <span class="highlight-span"></span>
+        <label for="password" class="lebal-email">Password</label>
+      </div>
+    </div>
+    <button class="submit">Acceder</button>
+    
+  </form>
+
+
+  <div class="messages-container">
+    <p-messages [value]="messages"></p-messages>
+  </div>
+
+<!-- </div> -->

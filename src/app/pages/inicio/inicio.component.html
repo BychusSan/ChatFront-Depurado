@@ -1,0 +1,414 @@
+
+
+    <main>
+      <section  aria-labelledby="projectDescriptionHeading">
+        <div id="descripcion-textos" class="text-center" >
+        <h2 id="projectDescriptionHeading">Descripción del Proyecto</h2>
+      </div>
+        <p>
+          Este proyecto tiene como objetivo ofrecer un sistema de registro y login para los usuarios, complementado con un
+          sistema de chat dividido en grupos de trabajo. Los usuarios podrán enviar mensajes que se almacenarán diariamente,
+          accesibles a través de un calendario, permitiendo la inclusión de códigos y archivos adjuntos en los mensajes.
+        </p>
+      </section>
+    
+    <section >
+      <nav role="navigation"  aria-label="Menú principal">
+        <p-menubar  class="menubar"  [model]="items"></p-menubar>
+      </nav>
+    </section>
+<div class="prueba">
+      <section aria-labelledby="backendSummaryHeading">
+        <div *ngIf="currentSection === 'resumen'">
+          <h2 id="backendSummaryHeading">Resumen del Backend y SignalR</h2>
+          <p>
+            El backend, construido con ASP.NET Core, está diseñado para ser eficiente y escalable, utilizando SignalR para
+            la
+            comunicación en tiempo real. Esto permite al servidor enviar mensajes instantáneamente a los clientes,
+            facilitando
+            una experiencia de chat fluida y dinámica.
+          </p>
+        </div>
+      </section>
+    
+      <section aria-label="Sección de Clases Backend">
+        <div *ngIf="currentSection === 'clases'">
+          <h2>Clases Backend</h2>
+          <div class="code-header">
+            <p>Las clases fundamentales del backend incluyen <strong>Connection</strong>, para gestionar conexiones de
+              usuario; <strong>Message</strong>, para definir la estructura de los mensajes; y
+              <strong>ResultadoHash</strong>,
+              para manejar los resultados de las operaciones de hashing.
+            </p>
+          </div>
+          <article aria-labelledby="codeForClasesHeading">
+            <h3 id="codeForClasesHeading">Código de Clases Backend</h3>
+            <div class="code-container">
+              <pre class="code-block">
+              <code class="language-csharp">{{ codeForClases }}</code>
+              <button class="copy-button" (click)="copyCode(codeForClases)">
+                <i class="pi pi-clone"></i>
+              </button>
+            </pre>
+            </div>
+          </article>
+        </div>
+      </section>
+    
+      <section aria-label="Sección SignalR Hub">
+        <div *ngIf="currentSection === 'hub'">
+          <h2>SignalR Hub</h2>
+          <article aria-labelledby="signalRHubContent">
+            <h3 id="signalRHubContent">Información sobre SignalR Hub</h3>
+            <p>
+              El hub de SignalR actúa como el núcleo de comunicación en tiempo real, gestionando las conexiones, grupos y
+              mensajes entre los usuarios. Facilita la implementación de funcionalidades como chats en grupo y difusión de
+              mensajes.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <section aria-label="Sección de Controladores">
+        <div *ngIf="currentSection === 'controladores'">
+          <h2>Controladores</h2>
+          <article aria-labelledby="controladoresContent">
+            <h3 id="controladoresContent">Información sobre Controladores</h3>
+            <p>
+              Los controladores en ASP.NET Core manejan las solicitudes entrantes, ejecutando la lógica necesaria para
+              responder a acciones específicas del usuario, como autenticación, gestión de mensajes y operaciones de datos.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <section aria-label="Sección de Servicios Backend">
+        <div *ngIf="currentSection === 'servicios'">
+          <h2>Servicios Backend</h2>
+          <article aria-labelledby="serviciosBackendContent">
+            <h3 id="serviciosBackendContent">Información sobre Servicios Backend</h3>
+            <p>
+              Los servicios backend proporcionan la lógica de negocio y el acceso a la base de datos, asegurando que las
+              operaciones como el envío de mensajes y la gestión de usuarios sean eficientes y seguras.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <section aria-label="Sección de Componentes Frontend">
+        <div *ngIf="currentSection === 'componentes'">
+          <h2>Componentes Frontend</h2>
+          <article aria-labelledby="componentesFrontendContent">
+            <h3 id="componentesFrontendContent">Información sobre Componentes Frontend</h3>
+            <p>
+              Los componentes Angular definen la interfaz de usuario, interactuando con los servicios para mostrar
+              información y responder a las acciones del usuario, como la visualización de mensajes y la interacción con el
+              chat.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <section aria-label="Sección de Servicios Frontend">
+        <div *ngIf="currentSection === 'serviciosFront'">
+          <h2>Servicios Frontend</h2>
+          <article aria-labelledby="serviciosFrontendContent">
+            <h3 id="serviciosFrontendContent">Información sobre Servicios Frontend</h3>
+            <p>
+              Los servicios frontend en Angular se encargan de comunicarse con el backend, solicitando datos y enviando
+              comandos, como cargar mensajes de chat o enviar nuevos mensajes.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <section aria-label="Sección de Directivas">
+        <div *ngIf="currentSection === 'directivas'">
+          <h2>Directivas</h2>
+          <article aria-labelledby="directivasContent">
+            <h3 id="directivasContent">Información sobre Directivas</h3>
+            <p>
+              Las directivas de Angular permiten modificar el comportamiento del DOM de manera declarativa, facilitando
+              tareas como cambios dinámicos en la apariencia o el comportamiento de elementos del DOM, reutilización de
+              lógicas y más.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <!-- Sección Módulos -->
+      <section aria-label="Sección de Módulos">
+        <div *ngIf="currentSection === 'modulos'">
+          <h2>Módulos</h2>
+          <article aria-labelledby="modulosContent">
+            <h3 id="modulosContent">Información sobre Módulos</h3>
+            <p>
+              Los módulos en Angular organizan la aplicación en bloques de funcionalidad cohesivos, permitiendo una mejor
+              gestión de las dependencias, la reutilización de componentes y la división de la aplicación en características
+              cargables de manera lazy.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <!-- Sección Instalación -->
+      <section aria-label="Sección de Instalación de Angular">
+        <div *ngIf="currentSection === 'Angular-instalación'">
+          <h2>Instalación de Angular</h2>
+          <article aria-labelledby="instalacionAngularContent">
+            <h3 id="instalacionAngularContent">Información sobre Instalación de Angular</h3>
+            <p>
+              La instalación de Angular implica configurar el entorno de desarrollo con las herramientas necesarias,
+              incluyendo Node.js, npm y el CLI de Angular, para poder crear y servir aplicaciones Angular.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <section aria-label="Sección de Instalación de ASP.NET Core y SignalR">
+        <div *ngIf="currentSection === 'Asp core y signalR'">
+          <h2>Instalación de ASP.NET Core y SignalR</h2>
+          <article aria-labelledby="instalacionAspNetCoreContent">
+            <h3 id="instalacionAspNetCoreContent">Información sobre Instalación de ASP.NET Core y SignalR</h3>
+            <p>
+              Para el desarrollo del backend, es necesario instalar ASP.NET Core y configurar SignalR, lo que implica
+              preparar el entorno .NET y añadir las dependencias necesarias para habilitar la comunicación en tiempo real en
+              la aplicación.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <!-- Sección Base de datos -->
+      <section aria-label="Sección de Base de Datos - Tablas">
+        <div *ngIf="currentSection === 'Tablas'">
+          <h2>Base de Datos - Tablas</h2>
+          <article aria-labelledby="tablasDatabaseContent">
+            <h3 id="tablasDatabaseContent">Información sobre Base de Datos - Tablas</h3>
+            <p>
+              La estructura de la base de datos y sus tablas es crucial para almacenar y gestionar los datos de usuarios,
+              mensajes y demás elementos necesarios para el funcionamiento del sistema de chat y registro.
+            </p>
+          </article>
+        </div>
+      </section>
+    
+      <section aria-label="Sección de SignalR">
+        <section *ngIf="currentSection === 'signalR'">
+          <div>
+            <h2>SignalR en Nuestro Sistema de Chat</h2>
+    
+            <p>SignalR es una biblioteca avanzada para ASP.NET Core que posibilita la comunicación en tiempo real entre el
+              servidor y los clientes web. Es la piedra angular de nuestro sistema de chat, permitiendo interacciones
+              dinámicas y en vivo sin la necesidad de recargar la página.</p>
+          </div>
+    
+          <article aria-labelledby="caracteristicasSignalR">
+            <h3 id="caracteristicasSignalR">Características Clave Implementadas con SignalR</h3>
+    
+            <h4>1. Salas de Chat Dinámicas</h4>
+            <p>Utilizamos SignalR para crear salas de chat donde los administradores pueden asignar empleados específicos.
+              Estas salas facilitan la colaboración enfocada y permiten reuniones virtuales dentro de grupos de trabajo.</p>
+    
+            <h4>2. Gestión del Historial de Mensajes</h4>
+            <p>A través de la integración de SignalR con nuestra base de datos, proporcionamos a los usuarios acceso al
+              historial completo de mensajes en cualquier sala, garantizando que la información importante nunca se pierda.
+            </p>
+    
+            <h4>3. Compartir Archivos</h4>
+            <p>Nuestro chat permite a los usuarios compartir archivos directamente en la conversación. SignalR juega un
+              papel crucial aquí, notificando a todos los miembros de la sala cuando un nuevo archivo está disponible.</p>
+    
+            <h4>4. Filtrado de Lenguaje</h4>
+            <p>Para mantener un entorno profesional, implementamos un filtro de lenguaje que examina y bloquea el contenido
+              inapropiado en tiempo real, asegurando que las conversaciones permanezcan respetuosas y productivas.</p>
+          </article>
+    
+          <article aria-labelledby="ejemplosCodigo">
+            <h3 id="ejemplosCodigo">Ejemplos de Código</h3>
+            <p>Para una comprensión más profunda de cómo SignalR potencia nuestro sistema de chat, revisa los siguientes
+              fragmentos de código alojados en GitHub:</p>
+    
+            <ul>
+              <li><a href="https://github.com/paco550/Chat-backend/blob/master/Chat/Hubs/ChatHub.cs"
+                  target="_blank">Configuración de SignalR</a></li>
+              <li><a href="URL_DEL_CÓDIGO_EN_GITHUB" target="_blank">Manejo de Salas de Chat</a></li>
+              <li><a href="URL_DEL_CÓDIGO_EN_GITHUB" target="_blank">Implementación del Historial de Mensajes</a></li>
+              <li><a href="URL_DEL_CÓDIGO_EN_GITHUB" target="_blank">Sistema de Compartición de Archivos</a></li>
+              <li><a href="URL_DEL_CÓDIGO_EN_GITHUB" target="_blank">Filtrado de Lenguaje</a></li>
+            </ul>
+          </article>
+        </section>
+      </section>
+    
+    
+      <!-- Sección Angular -->
+      <section aria-label="Sección de Angular">
+        <div *ngIf="currentSection === 'Angular'">
+          <h2>Arquitectura de Angular en Nuestro Sistema de Chat</h2>
+    
+          <p>Angular es el framework que elegimos para desarrollar la interfaz de usuario de nuestro sistema de chat. Nos
+            permite construir una aplicación de página única (SPA) con componentes reutilizables, inyección de dependencias
+            y un sistema de enrutamiento avanzado.</p>
+    
+          <article aria-labelledby="routingGuards">
+            <h3 id="routingGuards">Routing y Guards</h3>
+            <p>El sistema de routing de Angular nos permite definir rutas navegables en nuestra aplicación, mientras que los
+              guards se utilizan para proteger estas rutas. Esto garantiza que solo los usuarios autorizados puedan acceder
+              a ciertas áreas del chat, como las salas privadas y la configuración del perfil.</p>
+          </article>
+    
+          <article aria-labelledby="interfaces">
+            <h3 id="interfaces">Interfaces</h3>
+            <p>Utilizamos interfaces para definir la forma de los objetos que se manejan en toda la aplicación, como los
+              mensajes, usuarios y salas de chat. Esto proporciona una capa adicional de seguridad en tiempo de compilación
+              y mejora la documentación del código.</p>
+          </article>
+    
+          <article aria-labelledby="componentesComunes">
+            <h3 id="componentesComunes">Componentes Comunes</h3>
+            <p>Los componentes como Navbar y Navbar Footer son elementos clave en la interfaz de usuario de nuestro chat,
+              proporcionando una navegación coherente y acceso rápido a las principales características de la aplicación.
+            </p>
+          </article>
+    
+          <article aria-labelledby="pages">
+            <h3 id="pages">Pages</h3>
+            <p>Nuestra aplicación se compone de varias páginas, cada una construida como un componente Angular. Esto incluye
+              páginas para el login, registro, perfil del usuario, el historial de mensajes y la vista principal del chat,
+              entre otras.</p>
+          </article>
+    
+          <article aria-labelledby="servicios">
+            <h3 id="servicios">Servicios</h3>
+            <p>Los servicios en Angular juegan un papel crucial al ser responsables de la lógica de negocio y la interacción
+              con el backend. Por ejemplo, el servicio de chat maneja la conexión con SignalR, mientras que otros servicios
+              gestionan la autenticación, el almacenamiento local y las operaciones con la base de datos.</p>
+          </article>
+    
+          <article aria-labelledby="ejemplosCodigoGitHub">
+            <h3 id="ejemplosCodigoGitHub">Ejemplos de Código en GitHub</h3>
+            <p>Explora cómo hemos implementado estas características en nuestra aplicación de chat revisando los siguientes
+              fragmentos de código alojados en GitHub:</p>
+          </article>
+    
+          <ul>
+            <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/app.routing" target="_blank">App Routing</a></li>
+            <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/guards" target="_blank">Guards</a></li>
+            <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/interfaces" target="_blank">Interfaces</a></li>
+            <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/navbar" target="_blank">Navbar</a></li>
+            <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/navbarfooter" target="_blank">Navbar Footer</a></li>
+            <!-- Añade más enlaces según tus componentes y servicios -->
+          </ul>
+        </div>
+      </section>
+    
+    
+    
+      <!-- Sección Seguridad -->
+      <section aria-label="Sección de Seguridad">
+        <div *ngIf="currentSection === 'Seguridad'">
+          <div>
+            <!-- Sección Seguridad -->
+            <div *ngIf="currentSection === 'Seguridad'">
+              <h2>Seguridad en Nuestro Sistema de Chat</h2>
+    
+              <p>La seguridad es un aspecto crucial de nuestro sistema de chat, asegurando que solo los usuarios autorizados
+                puedan acceder y que la información se transmita de manera segura.</p>
+    
+              <article aria-labelledby="autenticacionJWT">
+                <h3 id="autenticacionJWT">Autenticación JWT</h3>
+                <p>Implementamos la autenticación basada en tokens JWT (JSON Web Tokens) para gestionar de forma segura las
+                  sesiones de usuario. Esto permite a los usuarios autenticarse una vez y luego realizar solicitudes al
+                  servidor sin tener que enviar sus credenciales en cada solicitud.</p>
+              </article>
+    
+              <article aria-labelledby="gestionCORS">
+                <h3 id="gestionCORS">Gestión de CORS</h3>
+                <p>Para permitir que nuestra aplicación Angular interactúe con el backend de ASP.NET Core, configuramos la
+                  política CORS (Cross-Origin Resource Sharing) para aceptar solicitudes de dominios específicos, asegurando
+                  que solo las solicitudes de origen confiable puedan acceder a los recursos del servidor.</p>
+              </article>
+    
+              <article aria-labelledby="serviciosAdicionales">
+                <h3 id="serviciosAdicionales">Servicios Adicionales</h3>
+                <p>Además de la autenticación y la gestión de CORS, nuestro backend incorpora varios servicios para
+                  enriquecer la funcionalidad del chat, como el servicio de historial para almacenar y recuperar mensajes
+                  anteriores y el servicio de limpieza para manejar la eliminación de datos antiguos o innecesarios.</p>
+              </article>
+    
+              <article aria-labelledby="ejemplosCodigoGitHubSeguridad">
+                <h3 id="ejemplosCodigoGitHubSeguridad">Ejemplos de Código en GitHub</h3>
+                <p>Explora cómo hemos implementado estas características de seguridad revisando los siguientes fragmentos de
+                  código alojados en GitHub:</p>
+              </article>
+    
+              <ul>
+                <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/jwt-authentication" target="_blank">Autenticación
+                    JWT</a></li>
+                <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/cors-policy" target="_blank">Política de CORS</a></li>
+                <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/historial-service" target="_blank">Servicio de
+                    Historial</a></li>
+                <li><a href="URL_DEL_COMPONENTE_O_SERVICIO_EN_GITHUB/cleanup-service" target="_blank">Servicio de
+                    Limpieza</a></li>
+                <!-- Añade más enlaces según tus componentes y servicios -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section aria-label="Introducción al Sistema de Chat">
+        <div>
+          <!-- Sección chatPresentation -->
+          <div *ngIf="currentSection === 'chatPresentation'">
+            <h2>Introducción al Sistema de Chat</h2>
+            <p>Se presenta un sistema de chat innovador diseñado para enriquecer Aula Virtual - Inserta, mejorando la
+              comunicación y colaboración en tiempo real.</p>
+    
+            <article aria-labelledby="necesidadSolucion">
+              <h3 id="necesidadSolucion">Necesidad y Solución</h3>
+              <p>La necesidad de una comunicación efectiva en entornos de aprendizaje online se aborda con este sistema, que
+                supera las limitaciones tradicionales ofreciendo una experiencia interactiva.</p>
+            </article>
+    
+            <article aria-labelledby="caracteristicasPrincipales">
+              <h3 id="caracteristicasPrincipales">Características Principales</h3>
+              <p>El sistema incluye salas de chat dinámicas, historial de mensajes, compartición de archivos y moderación
+                automática, enriqueciendo así la experiencia del usuario.</p>
+            </article>
+    
+            <article aria-labelledby="beneficios">
+              <h3 id="beneficios">Beneficios</h3>
+              <p>La implementación mejora la interacción entre estudiantes y educadores, promoviendo un entorno colaborativo
+                eficiente.</p>
+            </article>
+    
+            <article aria-labelledby="demostracion">
+              <h3 id="demostracion">Demostración</h3>
+              <p>Se ofrecerá una demostración de la funcionalidad del sistema para ilustrar cómo mejora la experiencia de
+                usuario.</p>
+            </article>
+    
+            <article aria-labelledby="escalabilidadPersonalizacion">
+              <h3 id="escalabilidadPersonalizacion">Escalabilidad y Personalización</h3>
+              <p>El sistema está diseñado para adaptarse y crecer con las necesidades futuras de Aula Virtual - Inserta,
+                asegurando innovación continua.</p>
+            </article>
+    
+            <article aria-labelledby="propuestaIntegracion">
+              <h3 id="propuestaIntegracion">Propuesta de Integración</h3>
+              <p>Se propone una colaboración estrecha con el equipo técnico para una integración fluida del sistema de chat
+                en la plataforma.</p>
+            </article>
+    
+            <article aria-labelledby="cierreColaboracion">
+              <h3 id="cierreColaboracion">Cierre y Colaboración</h3>
+              <p>Con la firme creencia en el valor añadido del sistema de chat, se invita a discutir los pasos a seguir para
+                implementar esta colaboración.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+    </main>

@@ -1,0 +1,173 @@
+
+
+<div id="contenedor-botones">
+  <!-- <ul [style.width]="sidebarWidth">
+    <li (click)="inicio(); botonesSala('INICIO')">INICIO<span></span><span></span><span></span><span></span></li>
+    <li (click)="chat();botonesSala('CHAT')">CHAT<span></span><span></span><span></span><span></span></li>
+    <li (click)="registrar2();botonesSala('REGISTRO')">REGISTRO<span></span><span></span><span></span><span></span></li>
+    <li (click)="historial();botonesSala('HISTORIAL')">HISTORIAL<span></span><span></span><span></span><span></span></li>
+    <li (click)="archivos();botonesSala('ARCHIVOS')">ARCHIVOS<span></span><span></span><span></span><span></span></li>
+  </ul> -->
+  <div class="pruebaBotones" >
+  <!-- <button (click)="inicio(); botonesSala('INICIO')">INICIO</button> -->
+  <button (click)="navigateToRoom();botonesSala('CHAT')">CHAT</button>
+  <button (click)="historial();botonesSala('HISTORIAL')">HISTORIAL</button>
+  <button (click)="registrar2();botonesSala('REGISTRO')">REGISTRO</button>
+  <!-- <button (click)="registrar2();botonesSala('CHAT')">CONJUNTA</button> -->
+  <!-- <button (click)="sala1();botonesSala('SALA 1')">SALA 1</button> -->
+
+
+    <!-- <span  class="pruebaBotones2" *ngFor="let user of connectedUsers ">
+    <button   *ngIf="user.rol == 'admin'" (click)="registrar2();botonesSala('REGISTRO')">REGISTRO</button>
+    <button *ngIf="user.rol == 'admin'" (click)="archivos();botonesSala('ARCHIVOS')">ARCHIVOS</button>
+    
+    </span> -->
+    
+    <!-- <h6 (click)="botonesSala('usuarios conectados')">
+      <i class="bi bi-people-fill"></i> &nbsp; <span style="color: rgb(56, 75, 218);">{{ connectedUsers.length }}</span></h6> -->
+  
+
+    <p (click)="botonesSala('usuarios conectados')">
+      <i class="bi bi-people-fill"></i> Usuarios conectados: <span style="color: rgb(43, 240, 43); font-size: 16px;">{{ connectedUsers.length }}</span></p>
+      
+
+    <!-- <p>Cantidad: {{ connectedUsers.length }}</p> -->
+    
+    <ol id="lista2" role="list">  
+      <li role="listitem"  *ngFor="let user of connectedUsers;  let i = index ">
+        <!-- <span class="bold-text" target="_blank" [routerLink]="['perfil-usuarios', user.id]" (click)="readUserName(user.nombre!)">{{ user.nombre}}</span> &nbsp; {{ getLabelForSala(user.rol!) }} -->
+        <span class="bold-text" target="_blank" (click)="readUserData(user.nombre!,  getLabelForSala(user.room!)); openAvatarUrlDialog(i)">{{ user.nombre}}</span> &nbsp; {{ getLabelForSala(user.room!) }}
+      </li>
+    </ol>
+    
+
+
+
+    <div  *ngFor="let user of connectedUsers; let i = index " >
+    <!-- <button class="btn btn-primary" (click)="openAvatarUrlDialog()">Cambiar Datos Usuario</button> -->
+    
+    <!-- Cuadro de diálogo o modal -->
+    <div class="modal" [ngClass]="{'d-block': showModal[i]}" tabindex="-1" role="dialog" id="ventana">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Datos de {{ user.nombre}}</h5>
+            <button type="button" class="close" (click)="closeAvatarUrlDialog(i)">Cerrar
+              
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">   
+            <div>
+          <img src="{{ user.avatar}}" alt="" style="height: 45px; width: 45px; border-radius: 50%; margin-right: 7px;">
+
+            <h6>{{ user.nombre}}</h6>
+           
+            <h6>{{ user.email}}</h6>
+    
+            <!-- <div class="enviar-mensaje">
+              <input type="text" [(ngModel)]="mensaje" placeholder="Escribe tu mensaje...">
+              <button (click)="enviarMensaje(user.nombre!)">Enviar</button>    
+              </div> -->
+            
+              <div >
+                <input type="text" [(ngModel)]="messageText" placeholder="Escribe tu mensaje">
+                <button (click)="sendPrivateMessage2(user.nombre!)">Enviar</button>
+                <!-- <button (click)="sendPrivateMessage()">Enviar</button> -->
+              </div>             
+              <div>
+
+
+
+
+
+                <!-- <div *ngFor="let message of messages">
+                  <p><strong>{{ user.nombre }}:</strong> {{ message.text }}</p>
+                </div> -->
+
+<div *ngFor="let message of privateMessages">
+  <!-- <div *ngFor="let message of messages" > -->
+  <p><strong>{{ message.user }}:</strong> {{ message.text }}</p>
+</div>
+
+
+
+<!-- <div class="chat-container">
+  <ul >
+    <ng-container *ngFor="let message of messages">
+      <li >
+        <p><strong>{{ message.avatar }}&nbsp;{{ message.user }}:</strong> {{ message.text }}</p>
+      </li>
+    </ng-container>
+  </ul>
+</div> -->
+
+
+<!-- <div >
+  <input type="text" [(ngModel)]="messageText" placeholder="Escribe tu mensaje">
+  <button (click)="sendPrivateMessage2(selectedUser)">Enviar</button>
+  <button (click)="sendPrivateMessage()">Enviar</button>
+</div>  -->
+
+
+<!-- <div class="chat-container">
+  <ul #chatList *ngIf="connected" class="list-unstyled mt-3 chat-list">
+    <ng-container *ngFor="let mensaje of mensajes">
+      <li class="mensaje-content2" [ngClass]="isCurrentUserMessage(mensaje.usuario) ? 'mensajeD-actual' : 'mensajeD-recibido'">
+        <img [src]="usuarioActual.avatar" alt="Avatar del usuario" class="avatar-img" />
+        <p class="mensaje-nombre" [ngClass]="isCurrentUserMessage(mensaje.usuario) ? 'actual-nombre' : 'recibido-nombre'">{{ mensaje.usuario }}</p>
+        <div class="mensaje-text">
+          <p class="mensaje-base" [ngClass]="isCurrentUserMessage(mensaje.usuario) ? 'actual' : 'recibido'" [innerHTML]="mensaje.mensaje" id="descripcion"></p>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</div> -->
+
+
+              </div>
+              
+            
+    
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeAvatarUrlDialog(i)">Cancelar</button>
+            <!-- <button type="button" class="btn btn-primary" (click)="setAvatarUrl()">Guardar</button> -->
+            <!-- <button type="button" class="btn btn-primary" (click)="updateUsuariosAvatar2(usuarioActual);">Cambiar datos</button> -->
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    </div>
+
+    <!-- <p><app-messageprivado></app-messageprivado></p> -->
+
+    
+    
+
+    
+    
+    
+    <!-- <p>Cantidad: {{ connectedUsers.length }}</p> -->
+  </div>
+<!-- 
+  <div *ngFor="let mensaje of mensajes">
+    <div class="mensaje">
+      <div class="emisor">{{ mensaje.emisor }} dice:</div>
+      <div class="contenido">{{ mensaje.contenido }}</div>
+    </div>
+  </div> -->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+
+
+<nav class="navbar" style="padding: 0 1rem; box-shadow: 0 0 5px -1px gray">
+  <a class="navbar-brand" href="javascript:void(0);" (click)="toggleSidebar()">
+    <button class="btnM">
+      <span class="icon">
+        <svg viewBox="0 0 175 80" width="40" height="40">
+          <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+          <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+          <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+        </svg>
+      </span>
+      <span class="text">MENU</span>
+    </button>
+  </a>
+
+  <div class="messages-container">
+    <p-messages [value]="messages"></p-messages>
+  </div>
+
+  <div class="loader">
+    <span>ConnecTalk</span>
+  
+  </div>
+  
+
+  <div class="contenedorPadreBotones">
+    <div class="d-inline-block" *ngIf="userEmail; else LoginButton">
+      <!-- <img src= "{{userAvatar}}"  alt="" style="height: 45px; width: 45px; border-radius: 50%; margin-right: 7px;"> -->
+      <!-- <div *ngIf="userData"> -->
+        <!-- <img [src]="userData[0].avatar" alt="Avatar del usuario" style="height: 45px; width: 45px; border-radius: 50%; margin-right: 7px;"> -->
+      <!-- </div> -->
+      <!-- <img [src]="userAvatar ? userAvatar : (userData.length > 0 ? userData[0].avatar : '')" alt="Avatar del usuario" style="height: 45px; width: 45px; border-radius: 50%; margin-right: 7px;"> -->
+      <img [src]="userAvatar() ? userAvatar() : (userData.length > 0 ? userData[0].avatar : '')" alt="Avatar del usuario" style="height: 45px; width: 45px; border-radius: 50%; margin-right: 7px;">
+
+      <!-- <img *ngIf="userAvatar" [src]="userAvatar" alt="Avatar del usuario" style="height: 45px; width: 45px; border-radius: 50%; margin-right: 7px;"> -->
+
+      <button
+        class="btn btn-outline-primary prueba"
+        id="dropdownBasic1"
+        (click)="perfil()"
+        ngbDropdownToggle
+      >
+     {{ userNombre }}
+      </button>
+
+      <button type="button" class="btn btn-logout ml-2" (click)="logout()">
+        Salir
+      </button>
+    </div>
+
+    <div class="contenedorIngresar">
+      <ng-template #LoginButton>
+        <button class="btn btn-primary" routerLink="/login">Ingresar</button>
+      </ng-template>
+    </div>
+    
+  </div>
+  
+</nav>
+
+    

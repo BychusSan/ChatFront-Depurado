@@ -1,0 +1,154 @@
+
+ <div class="container">
+
+  
+  <div class="row">
+    <div class="col-md-12">
+      <p *ngIf="connected" class="text-success text-center">Conectado al CHAT como: {{ currentUser.nombre }} en la {{ getRoomName() }}</p>
+      <p *ngIf="!connected" class="text-danger text-center">Desconectado del CHAT</p>
+      
+      <div class="messages-container">
+        <p-messages [value]="messages"></p-messages>
+      </div>
+
+      <div class="botonesPrincipales">
+        <button class="open-file" (click)="archivos();botonesSala('ARCHIVOS')">
+          <span class="file-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 71 67">
+              <path
+                stroke-width="5"
+                stroke="black"
+                d="M41.7322 11.7678L42.4645 12.5H43.5H68.5V64.5H2.5V2.5H32.4645L41.7322 11.7678Z"
+              ></path>
+            </svg>
+            <span class="file-front"></span>
+          </span>
+          Archivos
+        </button>
+
+      <!-- <button (click)="toggleVisibility(); updateRole('admin'); lectorService.botonesSala('Mostrar : Ocultar salas')" #mostrarOcultarSalas  ngIf="userData.rol == 'admin'">Mostrar/Ocultar Salas</button> -->
+         <button (click)="toggleVisibility(); updateRoom('Conjunta'); lectorService.botonesSala(mostrarOcultarSalas.innerText); toggleButtonText()" #mostrarOcultarSalas *ngIf="userData.rol == 'admin'">{{ botonCambio }}</button>
+      </div>
+
+      <!-- <button (click)="toggleVisibility(); updateRoom('Conjunta'); lectorService.botonesSala(mostrarOcultarSalas.innerText); toggleButtonText()" #mostrarOcultarSalas *ngIf="userData.rol == 'admin'">{{ botonCambio }}</button> -->
+
+      <div class="button-container" *ngIf="isVisible">
+      
+          <button
+            class="custom-button"
+            #salaConjuntaBtn
+            (click)="
+              chat();
+              moverSala('Conjunta', salaConjuntaBtn);
+              updateRoom('Conjunta');
+              lectorService.botonesSala(salaConjuntaBtn.innerText)
+            "
+          >
+            Sala Conjunta
+          </button>
+    
+          <button
+            class="custom-button"
+            *ngIf="userData.rol == 'admin' || userData.room == 'Sala 1'"
+            #grupo1Btn
+            (click)="
+              sala1();
+              moverSala('Sala 1', grupo1Btn);
+              updateRoom('Sala 1');
+              lectorService.botonesSala(grupo1Btn.innerText)
+            "
+          >
+            SALA 1
+          </button>
+      
+          <button
+            class="custom-button"
+            *ngIf="userData.rol == 'admin' || userData.room == 'Sala 2'"
+            #grupo2Btn
+            (click)="
+              sala2();
+              moverSala('Sala 2', grupo2Btn);
+              updateRoom('Sala 2');
+              lectorService.botonesSala(grupo2Btn.innerText)
+            "
+          >
+            SALA 2
+          </button>
+        
+          <button
+            class="custom-button"
+            *ngIf="userData.rol == 'admin' || userData.room == 'Sala 3'"
+            #grupo3Btn
+            (click)="
+              sala3();
+              moverSala('Sala 3', grupo3Btn);
+              updateRoom('Sala 3');
+              lectorService.botonesSala(grupo3Btn.innerText)
+            "
+          >
+            SALA 3
+          </button>
+      
+          <button
+            class="custom-button"
+            *ngIf="userData.rol == 'admin' || userData.room == 'Sala 4'"
+            #grupo4Btn
+            (click)="
+              sala4();
+              moverSala('Sala 4', grupo4Btn);
+              updateRoom('Sala 4');
+              lectorService.botonesSala(grupo4Btn.innerText)
+            "
+          >
+            SALA 4
+          </button>
+     
+          <button
+            class="custom-button"
+            *ngIf="userData.rol == 'admin' || userData.room == 'Sala 5'"
+            #grupo5Btn
+            (click)="
+              sala5();
+              moverSala('Sala 5', grupo5Btn);
+              updateRoom('Sala 5');
+              lectorService.botonesSala(grupo5Btn.innerText)
+            "
+          >
+            SALA 5
+          </button>
+    
+          <button
+            class="custom-button"
+            *ngIf="userData.rol == 'admin' || userData.room == 'Sala 6'"
+            #grupo6Btn
+            (click)="
+              sala6();
+              moverSala('Sala 6', grupo6Btn);
+              updateRoom('Sala 6');
+              lectorService.botonesSala(grupo6Btn.innerText)
+            "
+          >
+            SALA 6
+          </button>     
+        </div>
+      <div class="chat-container">
+        <ul #chatList *ngIf="connected" class="list-unstyled mt-3 chat-list">
+          <ng-container *ngFor="let mensaje of mensajes">
+            <li class="mensaje-content2" [ngClass]="isCurrentUserMessage(mensaje.usuario) ? 'mensajeD-actual' : 'mensajeD-recibido'">
+              <!-- <img [src]="connectedUsers[0].avatar" alt="Avatar del usuario" class="avatar-img" /> -->
+              <!-- <img [src]="getAvatarUrl(mensaje.usuario)" alt="Avatar del usuario" class="avatar-img" /> -->
+              <!-- <img [src]="usuarioActual.avatar" alt="Avatar del usuario" class="avatar-img" /> -->
+              <p class="mensaje-nombre" [ngClass]="isCurrentUserMessage(mensaje.usuario) ? 'actual-nombre' : 'recibido-nombre'" [title]="mensaje.fecha | date:'HH:mm'">{{ mensaje.usuario }}</p>
+              <div class="mensaje-text">
+                <p class="mensaje-base" [ngClass]="isCurrentUserMessage(mensaje.usuario) ? 'actual' : 'recibido'" [innerHTML]="mensaje.mensaje" id="descripcion" [title]="mensaje.fecha | date:'HH:mm'"></p>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+        <div class="pruebamargen">
+          <app-message-input (sendMessageEvent)="sendMessage($event)" class="prueba"></app-message-input>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+@import "~primeng/resources/primeng.min.css";
+
+
+
+
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+
+
+
+.input-group-text{
+   background-color: #cff4fc;
+
+}
+
+
+.form-select{
+    width: 45rem;
+}
+.option{
+    display: none;
+}
+
+.p-menubar {
+    display: flex;
+    align-items: center;
+    background-color:  rgb(18, 22, 32);
+    /* background-color:  rgb(27, 27, 27); */
+
+}
+
+.p-menubar-root-list>.p-menuitem-active>p-menubarsub>.p-submenu-list {
+    display: block;
+    background-color:  rgb(18, 22, 32);
+    /* background-color:  rgb(27, 27, 27); */
+}
+/* *, ::after, ::before {
+    box-sizing: border-box;
+    color: #b8b8b8;
+} */
+
+

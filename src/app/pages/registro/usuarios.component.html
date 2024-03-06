@@ -1,0 +1,252 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Agregar nuevo usuario</h2>
+    </div>
+    <form (submit)="addUsuarios()">
+      <div class="row mb-3">
+        <div class="col">
+          <label for="nombre" class="form-label" >Nombre</label>
+          <input
+            type="text"
+            class="form-control text-center"
+            id="nombre"
+            name="nombre"
+            [(ngModel)]="usuario.nombre"
+            required 
+          />
+        </div>
+        <div class="col">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control text-center"
+            id="email"
+            name="email"
+            [(ngModel)]="usuario.email"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="text"
+            class="form-control text-center"
+            id="password"
+            name="password"
+            [(ngModel)]="usuario.password"
+            required
+          />
+        </div>
+
+        <div class="col">
+          <label for="rol" class="form-label">Rol</label>
+          <select
+            class="col-4 form-control"
+            type="text"
+            id="rol"
+            name="rol"
+            [(ngModel)]="usuario.rol"
+            required
+          >
+            <option value="usuario">usuario</option>
+            <option value="admin">admin</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label for="room" class="form-label">Sala</label>
+          <select
+            class="col-4 form-control"
+            type="text"
+            id="room"
+            name="room"
+            [(ngModel)]="usuario.room"
+            required
+          >
+            <option value="Sala 1">Sala 1</option>
+            <option value="Sala 2">Sala 2</option>
+            <option value="Sala 3">Sala 3</option>
+            <option value="Sala 4">Sala 4</option>
+            <option value="Sala 5">Sala 5</option>
+            <option value="Sala 6">Sala 6</option>
+            <option value="Conjunta">Conjunta</option>
+          </select>
+        </div>
+
+
+      </div>
+      <button type="submit" class="btn btn-primary">Agregar usuario</button>
+    </form>
+  </div>
+
+  <hr class="row mt-4" />
+  <button class="btn btn-danger" (click)="borrarArchivos()">
+    Borrar todos los Archivos
+  </button>
+  <button class="btn btn-warning" (click)="borrarLista()" style="margin-left: 1rem;">
+    Limpiar lista de usuarios
+  </button>
+  <hr class="row mt-4" />
+
+  <div class="row mt-4" >
+    <div class="col-md-12" id="prueba">
+      <table class="custom-table" id="prueba">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Img</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Avatar</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Sala</th>
+            <th scope="col">F.Registro</th>
+            <th scope="col">F.Actualización</th>
+            <th scope="col">Última conexión</th>
+            <th scope="col">Nueva password</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td [title]="usuario.id"
+            >{{ usuario.id }}</td>
+            <td><img src="{{ usuario.avatar }}" alt="" style="height: 45px; width: 45px; border-radius: 50%;"></td>
+
+            <td>
+              <input
+                type="text"
+                class="form-control text-center"
+                [(ngModel)]="usuario.nombre"
+                [title]="usuario.nombre"
+
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control text-center"
+                [(ngModel)]="usuario.email"
+                [title]="usuario.email"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control text-center"
+                [(ngModel)]="usuario.avatar"
+                [title]="usuario.avatar"
+              />
+            </td>
+            <!-- <td><input type="text" class="form-control text-center" [(ngModel)]="usuario.rol" /></td> -->
+            <td>
+              <select
+              class="form-select"                
+              type="text"
+                id="rol"
+                name="rol"
+                [(ngModel)]="usuario.rol"
+                [title]="usuario.rol"
+                
+
+                style="width: 150px;"
+              >
+                <option value="usuario">usuario</option>
+                <option value="admin">admin</option>
+              </select>
+            </td>
+
+
+            <td>
+              <select
+              class="col-4 form-select"                
+              type="text"
+                id="room"
+                name="room"
+                [(ngModel)]="usuario.room"
+                [title]="usuario.room"
+                style="width: 150px"
+              >
+                <option value="Sala 1">Sala 1</option>
+                <option value="Sala 2">Sala 2</option>
+                <option value="Sala 3">Sala 3</option>
+                <option value="Sala 4">Sala 4</option>
+                <option value="Sala 5">Sala 5</option>
+                <option value="Sala 6">Sala 6</option>
+                <option value="Conjunta">Conjunta</option>
+              </select>
+            </td>
+
+            <td>
+              <input
+                type="text"
+                class="form-control text-center"
+                [ngModel]="usuario.fechaRegistro | date:'dd/MM/yyyy'"
+               [title]="usuario.fechaRegistro"
+
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control text-center"
+                [ngModel]="usuario.fechaUpdate | date:'dd/MM/yyyy HH:mm'"
+                [title]="usuario.fechaUpdate"
+
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="form-control text-center"
+                [ngModel]="usuario.lastConnection | date:'dd/MM/yyyy HH:mm'"
+                [title]="usuario.lastConnection"
+
+              />
+            </td>
+
+            <td>
+              <input
+                type="text"
+                class="form-control text-center"
+                [(ngModel)]="usuario.nuevaPassword"
+                [title]="usuario.nuevaPassword"
+
+              />
+            </td>
+            <td>
+              <div class="dropdown">
+                <button
+                  class="btn btn-primary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  OPCIONES
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" (click)="updateUsuarios(usuario)"
+                      >Actualizar</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="deleteUsuarios(usuario)"
+                      >Eliminar</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="changePassword(usuario)"
+                      >Cambiar contraseña</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

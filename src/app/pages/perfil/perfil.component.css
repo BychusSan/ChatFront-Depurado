@@ -1,0 +1,112 @@
+.perfil-container {
+  width: 100%;
+  height: 700px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  background-color: rgb(52, 52, 52);
+
+  padding: 1rem;
+  display: flex;
+  /* flex-direction: column-reverse; */
+  flex-flow:row-reverse wrap;
+
+}
+
+.loading, .no-avatar {
+  text-align: center;
+  padding-top: 40px;
+}
+
+
+#pruebaImg{
+margin-top: 1px;
+
+}
+
+
+input{
+margin-bottom: 10px;
+background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+#descripcion-perfil {
+flex: 1;
+font-weight: bold;
+color: azure;
+
+}
+
+
+
+
+
+.custom-input-file {
+  background-color: #0058db;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  /* font-weight: bold; */
+  margin: 0 auto 0;
+  /* min-height: 15px; */
+  overflow: hidden;
+  /* padding: 10px; */
+  position: relative;
+  text-align: center;
+  width: 300px;
+  height: 30px;
+  border-radius: 7px;
+}
+
+.custom-input-file .input-file {
+ border: 10000px solid transparent;
+ cursor: pointer;
+ font-size: 10000px;
+ margin: 0;
+ opacity: 0;
+ outline: 0 none;
+ padding: 0;
+ position: absolute;
+ right: -1000px;
+ top: -1000px;
+}
+
+
+#ventana{
+  padding: 6rem; 
+  background-color: rgba(0, 0, 0, 0.688); 
+  text-align: center; 
+  font-weight: bold; 
+  opacity: 1; 
+  z-index: 1000000000;
+  color: white;
+
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--bs-modal-color);
+  pointer-events: auto;
+  background-color: var(--bs-modal-bg);
+  background-clip: padding-box;
+  border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+  /* border-radius: var(--bs-modal-border-radius); */
+  outline: 0;
+  background-color:  rgb(18, 22, 32);
+  border-radius: 2rem;
+}
+
+#sselector-prueba{
+
+  font-weight: bold; 
+
+}
+
+
+.text-center {
+  font-weight: bold;
+}

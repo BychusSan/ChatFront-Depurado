@@ -1,0 +1,133 @@
+<section id="descripcion-perfil">
+  <h2>Bienvenido a tu perfil</h2>
+  <p>Aquí podras consultar tus datos y modificar tu avatar.</p>
+</section>
+<main class="perfil-container" [style.backgroundImage]="'url(' + getAvatarUrl() + ')'">
+  
+  <section>
+    
+    
+    <img *ngIf="usuarioActual.avatar" id="pruebaImg" [src]="usuarioActual.avatar" alt="Avatar del usuario" style="width: 100px; height: 100px; border-radius: 50%;">
+    
+    <p></p>
+    
+    <div class="row mb-3" >
+  <div class="col"  id="prueba">
+    <div>
+
+       <p></p>
+      
+
+
+
+<!-- Botón para abrir el cuadro de diálogo o modal -->
+<button class="btn btn-primary" (click)="openAvatarUrlDialog()">Cambiar Datos Usuario</button>
+
+<!-- Input oculto para almacenar la URL del avatar -->
+<input type="hidden" [(ngModel)]="usuarioActual.avatar" />
+
+<!-- Cuadro de diálogo o modal -->
+<div class="modal" [ngClass]="{'d-block': showModal}" tabindex="-1" role="dialog" id="ventana" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cambiar Datos Usuario</h5>
+        <button type="button" class="close" (click)="closeAvatarUrlDialog()">
+          
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">   
+        <div>
+        <h6>Nombre</h6>
+          <input
+          type="text"
+          style="background-color: rgba(255, 255, 255, 0.5); text-align: center; font-weight: bold;"
+          class="col-2 form-control"
+          [(ngModel)]="usuarioActual.nombre"
+          />
+          <h6>Email</h6>
+          <input
+          type="text"
+          style="background-color: rgba(255, 255, 255, 0.5); text-align: center; font-weight: bold;"
+          class="col-2 form-control"
+          [(ngModel)]="usuarioActual.email"
+          />
+        </div>
+
+        <h6 style="margin-top: 2rem;">Seleccione un Avatar predefinido</h6>
+        <select class="form-control text-center" style="background-color: rgba(255, 255, 255, 0.5)" name="avatarSelect" id="avatarSelect" [(ngModel)]="usuarioActual.avatar" >
+        <option disabled  value="" id="selector-prueba" style="font-weight: bold;">Seleccione un avatar</option>
+        <option value="https://cdn-icons-png.flaticon.com/256/456/456141.png">
+         Default
+       </option>         
+        <option value="https://avatarfiles.alphacoders.com/120/120060.jpg">
+          Avatar 1
+        </option>
+        <option value="https://cdn.icon-icons.com/icons2/1576/PNG/512/3561839-emoji-emoticon-silly_107878.png">
+          Avatar 2
+        </option>
+        <option value="https://th.bing.com/th/id/OIP.th8AjwRm63Ooh3XIZg5eAAHaF8?rs=1&pid=ImgDetMain">
+          Avatar 3
+        </option>
+        <option value="https://i.pinimg.com/736x/90/05/80/900580e1df8f3a9858736f21dde029fd.jpg">
+          Avatar 4
+        </option>
+      </select> 
+      <h6 style="margin-top: 2rem;">Añada una URL de Avatar personalizado</h6>
+        <input class="form-control" type="text"  name="avatarSelect" id="avatarSelect" [(ngModel)]="usuarioActual.avatar" placeholder="Ingrese la URL de su avatar de forma manual">
+        <button type="button" class="btn btn-primary" (click)="updateUsuariosDatos(usuarioActual);">Modificar datos</button> 
+      </div>
+
+
+      <div >
+        <h6 style="margin-top: 2rem;">Seleccione una nueva contraseña</h6>
+        <input
+        class="col-2 form-control"
+        style="background-color: rgba(255, 255, 255, 0.5); text-align: center; font-weight: bold;"
+        type="text"
+        id="tamañoInput"
+        [(ngModel)]="usuarioActual.nuevaPassword"
+        placeholder="Contraseña" 
+        />
+        <button  type="button" class="btn btn-primary"  (click)="changePassword(usuarioActual)"
+        >Modificar contraseña</button>
+        </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeAvatarUrlDialog()">Cancelar</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+ 
+   <!-- HASTA AQUI -->
+<p></p>
+<p></p>
+</div>
+<p></p>
+<p></p>
+<p></p>
+
+<div class="custom-input-file col-md-6 col-sm-6 col-xs-6">
+  <input type="file" id="fichero-tarifas" class="input-file" value="" (change)="onFileSelected($event)" title="Seleccionar fondo de perfil">
+  Seleccionar fondo perfil
+  </div>
+
+      </div>
+  </div>
+  </section>
+</main>
+
+
+
+
+
+
+
+
+
+
